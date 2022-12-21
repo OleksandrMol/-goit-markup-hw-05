@@ -89,6 +89,14 @@ body {
 }
 
 /* Header */
+header {
+  background-color: var(--accent-color);
+  border-bottom: 1px solid var(--border-color);
+}
+.header-contener {
+  display: flex;
+  justify-content: space-between;
+}
 .logo {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
@@ -105,16 +113,6 @@ body {
 }
 .context-section .logo-end {
   color: var(--accent-color);
-}
-
-header {
-  background-color: var(--accent-color);
-  border-bottom: 1px solid var(--border-color);
-}
-
-.header-contener {
-  display: flex;
-  justify-content: space-between;
 }
 .nav-contener {
   display: flex;
@@ -134,6 +132,7 @@ header {
 }
 .main-links {
   display: block;
+  position: relative;
   padding: 30px 0;
   font-size: 14px;
   line-height: 1.14;
@@ -144,7 +143,16 @@ header {
 .main-links.current {
   color: var(--active-color);
 }
-
+.main-links.current::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background-color: var(--active-color);
+  border-radius: 2px;
+}
 .main-links:hover,
 .main-links:focus {
   color: var(--active-color);
@@ -205,7 +213,6 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 .hero-title {
   margin-bottom: 30px;
   color: var(--accent-color);
@@ -284,7 +291,8 @@ header {
   line-height: 1.152;
   color: var(--title-color);
 }
-/* Team */
+/* Inform */
+
 .inform-title {
   margin-bottom: 50px;
   color: var(--title-color);
@@ -297,6 +305,29 @@ header {
   display: flex;
   gap: 30px;
 }
+.inform-item {
+  position: relative;
+}
+.description-of-information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+.description-headline {
+  color: var(--accent-color);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.142;
+}
+
+/* Team */
 .team-section {
   background-color: var(--secondary-backgroun);
 }
@@ -368,12 +399,35 @@ header {
 }
 .title-link {
   display: block;
+
   color: var(--text-color);
 }
 .title-link:hover,
 .title-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.title-contener {
+  position: relative;
+  overflow: hidden;
+}
+.description-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 63px 24px;
+  background-color: rgba(33, 150, 243, 0.9);
+  color: var(--accent-color);
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.title-link:hover .description-title {
+  transform: translateY(0);
+  height: 294px;
 }
 .title-contener {
   padding: 20px 24px;
@@ -470,4 +524,61 @@ header {
   fill: var(--accent-color);
   background-color: var(--active-color);
   border-radius: 50%;
+}
+
+/* Modal */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.modal {
+  display: flex;
+  justify-content: end;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 8px;
+  padding-right: 8px;
+  width: 100%;
+  max-width: 528px;
+  height: 100%;
+  max-height: 581px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: var(--accent-color);
+  animation: animate__scale 1000ms ease;
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+@keyframes animate__scale {
+  0% {
+    transform: scale(0.75);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

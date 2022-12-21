@@ -12,6 +12,8 @@
     <!-- Style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css" integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
+   
+    
   <body>
     <header>
      <div class="contener">
@@ -48,7 +50,7 @@
         <div class="contener">
           <div class="hero-contener">
          <h1 class="hero-title">Ефективні рішення для <br> вашого бізнесу</h1>
-         <button class="hero-button" type="button">Замовити послугу</button>
+         <button class="hero-button" type="button" data-modal-open>Замовити послугу</button>
          </div>
         </div>
       </section>
@@ -97,14 +99,27 @@
       </section>
 
       <section class="section">
-      <div class="contener">
-        <h2 class="inform-title">Чим ми займаємося</h2>
-        <ul class="inform-list">
-       <li class="inform-item"> <img src="./images/workcode.jpg" alt="Робоче місце з кодом на комп'ютері" width="370" height="294"></li>
-       <li class="inform-item"> <img src="./images/mobviews.jpg" alt="Робоче місце з розробкою для мобільного" width="370" height="294"></li>
-       <li class="inform-item"><img src="./images/colors.jpg" alt=" Кольорова палітна на планшеті" width="370" height="294"></li>
-       </ul>
-      </div>
+         <div class="contener">
+        
+          <h2 class="inform-title">Чим ми займаємося</h2>
+          <ul class="inform-list">
+            <li class="inform-item"> <img src="./images/workcode.jpg" alt="Робоче місце з кодом на комп'ютері"    width="370" height="294">
+              <div class="description-of-information">
+                <h3 class="description-headline">Десктопні додатки</h3>
+              </div>
+            </li>
+            <li class="inform-item"> <img src="./images/mobviews.jpg" alt="Робоче місце з розробкою для мобільного" width="370" height="294">
+              <div class="description-of-information">
+                <h3 class="description-headline">Мобільні додатки</h3>
+              </div>
+            </li>
+            <li class="inform-item"><img src="./images/colors.jpg" alt=" Кольорова палітна на планшеті" width="370" height="294">
+              <div class="description-of-information">
+                <h3 class="description-headline">Дизайнерські рішення </h3>
+              </div>
+            </li>
+          </ul>
+        </div>
         
       </section>
 
@@ -325,7 +340,6 @@
       </div>
         
       </section>
-      
     </main>
 
     <footer class="context-section">
@@ -371,8 +385,21 @@
                     </svg>
                   </a>
               </li>
+       </ul>
       </div>
       </div>
     </footer>
+
+    <div class="backdrop is-hidden"   data-modal>
+      <div class="modal" >
+      <button type="button" class="close-button"   data-modal-close>
+        <svg width="11" height="11" >
+          <use href="./images/icons.svg#icon-Vector"></use>
+        </svg>
+      </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
+    
   </body>
 </html>
